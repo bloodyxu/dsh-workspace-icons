@@ -14,6 +14,14 @@ dsh plugin --profile <profile> add dsh-workspace-icons
 
 装完重启 Harness，让 Host 半加载。之后应该能：设置里多出「项目图标」一页，侧栏项目行右键能弹出选择器。
 
+## 预览
+
+![160 个内置图标各自的颜色，浅色与深色主题](./docs/icon-colours.png)
+
+![用插件真实生成的 CSS 渲染出的侧栏项目行](./docs/sidebar-rows.png)
+
+两张图都是**插件自己生成的结果**（颜色来自 `glyphColor()`，项目行由 `buildCss()` 输出套在假数据上渲染），不是 Harness 窗口的截图。
+
 ## 使用
 
 有两种入口，操作的是同一份数据：
@@ -104,6 +112,7 @@ POST /api/workspace-icons/suggest
 
 ## 兼容性
 
+- 在 DSH 0.2.2-rc.1 上开发与验证；需要提供 `connection` 服务（Host 路由）、`llm` 服务（AI 建议用，可选）以及 `settings.section` / `shell.overlay` 插槽的 Harness。Node 20+。
 - 需要侧栏由 `@deepseek-ai/dsh-client-ui-workspace` 提供（当前实现）；`workspace-tree` 分组模式用的是同一套 `workspace:<workspaceId>` 行 key，图标照常显示，只有 `flat` 模式没有项目行、无处可画。
 - 如果未来 DSH 改掉项目行的 DOM（`data-row-key` 或首个子元素的结构），图标绘制会**静默失效**：副作用只是图标不再显示，设置页照常可用、不报错、不影响其它任何功能。升级 DSH 后如果发现图标没了，看一眼 `client.js` 里的 `buildCss()` 与 `ROW_PREFIX` 即可定位。
 - AI 建议依赖 profile 配置的默认模型；换模型 / 换 provider 后下一次识别就用新的。

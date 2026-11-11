@@ -14,6 +14,14 @@ dsh plugin --profile <profile> add dsh-workspace-icons
 
 Restart the Harness so the Host half loads. After that you should see a **Project icons** page in Settings, and right-clicking a project row in the sidebar should open the icon picker.
 
+## Preview
+
+![The 160 bundled icons in their own colours, on the light and dark themes](./docs/icon-colours.png)
+
+![Sidebar project rows rendered from the plugin's own generated CSS](./docs/sidebar-rows.png)
+
+Both images are renders of what the plugin generates — the colour table from `glyphColor()`, the rows from `buildCss()` applied to mock project rows — not screenshots of the Harness window itself.
+
 ## Usage
 
 Two entry points, one shared store:
@@ -104,6 +112,7 @@ POST /api/workspace-icons/suggest
 
 ## Compatibility
 
+- Built and tested against DSH 0.2.2-rc.1; it needs a Harness that ships the `connection` service (Host route), the `llm` service for AI suggestions (optional) and the `settings.section` / `shell.overlay` slots. Node 20+.
 - Requires the sidebar provided by `@deepseek-ai/dsh-client-ui-workspace` (the current implementation); `workspace-tree` grouping uses the same `workspace:<workspaceId>` row keys, so icons keep showing there. The `flat` grouping mode has no project rows at all, so there is nothing to draw on.
 - If a future DSH release changes the project row DOM (`data-row-key` or the first child's structure), icon drawing **fails silently**: the only effect is that icons stop showing, while the settings page keeps working and nothing else breaks. After a DSH upgrade, `buildCss()` and `ROW_PREFIX` in `client.js` are the two places to look.
 - AI suggestions depend on the profile's default model; switching model or provider is picked up by the next analysis.

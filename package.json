@@ -20,12 +20,19 @@
   "license": "MIT",
   "author": "bloodyxu",
   "engines": {
-    "node": ">=20",
-    "dsh": ">=0.2.0-rc.1"
+    "node": ">=20"
   },
   "peerDependencies": {
-    "@deepseek-ai/dsh-llm": ">=0.2.0-rc.1",
-    "react": ">=18.2.0"
+    "@deepseek-ai/dsh-llm": "^0.2.1-rc.1 || ^0.2.2-rc.1",
+    "react": ">=18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-llm": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    }
   },
   "main": "index.js",
   "icon": "./icon.svg",
