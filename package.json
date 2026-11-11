@@ -1,0 +1,73 @@
+{
+  "name": "dsh-workspace-icons",
+  "version": "2.1.0",
+  "description": "Per-project icons for the DeepSeek Harness Web UI sidebar: right-click a project name to give that folder its own icon — 160 bundled Hugeicons SVG icons, each in its own tuned colour, an emoji, or an image URL — and let the AI read each project and suggest an icon automatically (local rules when the model is unavailable). / 给侧栏每个项目文件夹设定图标（内置 160 个 Hugeicons 图标、每个都有自己的颜色，另有 emoji 或图片），并自动读项目内容让 AI 推荐图标（模型不可用时用本地规则兜底）。",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek",
+    "deepseek-harness",
+    "cordis",
+    "plugin",
+    "sidebar",
+    "workspace",
+    "project",
+    "icons",
+    "hugeicons",
+    "i18n"
+  ],
+  "type": "module",
+  "license": "MIT",
+  "author": "bloodyxu",
+  "engines": {
+    "node": ">=20",
+    "dsh": ">=0.2.0-rc.1"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-llm": ">=0.2.0-rc.1",
+    "react": ">=18.2.0"
+  },
+  "main": "index.js",
+  "icon": "./icon.svg",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./icon": "./icon.svg",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "files": [
+    "index.js",
+    "lib",
+    "client.js",
+    "cordis.patch.yml",
+    "icon.svg",
+    "locale",
+    "README.md",
+    "README.zh.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "THIRD-PARTY-NOTICES.md",
+    "scripts",
+    "test"
+  ],
+  "scripts": {
+    "test": "node test/contract.test.mjs && node test/analyze.test.mjs && node test/host.test.mjs",
+    "test:client": "node test/contract.test.mjs",
+    "test:analyze": "node test/analyze.test.mjs",
+    "test:host": "node test/host.test.mjs",
+    "build:glyphs": "node scripts/build-glyphs.mjs",
+    "check:glyphs": "node scripts/build-glyphs.mjs --check",
+    "check": "node --check client.js && node --check index.js && npm run check:glyphs && npm test"
+  }
+}

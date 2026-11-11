@@ -1,0 +1,8 @@
+# dsh-workspace-icons bundle patch: one Host row over the web profile.
+# The row name resolves from the profile's own node_modules, where the plugin
+# manager (or `dsh plugin add <path>`) put this package. The row applies a
+# no-op Host plugin; everything the user sees is the package's browser half
+# (`dsh.client`), which the client module graph loads on boot.
+- insert:
+    - id: workspace-icons
+      name: dsh-workspace-icons
