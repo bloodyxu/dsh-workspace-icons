@@ -1,0 +1,11 @@
+# Draft entry for the awesome-dsh-plugin catalog.
+# Target path in that repository: data/plugins/bloodyxu__dsh-workspace-icons.yml
+# Requirements not met yet: npm package must exist (publish pending) and the
+# repository must be at least one day old.
+url: https://github.com/bloodyxu/dsh-workspace-icons
+name: bloodyxu/dsh-workspace-icons
+category: ui
+description:
+  en: Give every project folder in the Harness sidebar its own icon — 160 bundled Hugeicons each with its own colour, an emoji, or an image — and let the AI read a project and suggest one.
+  zh: 给侧栏每个项目文件夹设定图标——160 个 Hugeicons（每个都有自己的颜色）、emoji 或图片——并自动读项目内容让 AI 推荐。
+icon: https://raw.githubusercontent.com/bloodyxu/dsh-workspace-icons/main/docs/icon-180.png
