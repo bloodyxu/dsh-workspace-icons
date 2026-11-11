@@ -19,6 +19,14 @@
   "type": "module",
   "license": "MIT",
   "author": "bloodyxu",
+  "homepage": "https://github.com/bloodyxu/dsh-workspace-icons#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bloodyxu/dsh-workspace-icons.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bloodyxu/dsh-workspace-icons/issues"
+  },
   "engines": {
     "node": ">=20"
   },
